@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyB-W2UDIF5JEW4Pth9H4RxcwRUm9xBYtUQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>307137602167</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.appigreja</string>
+	<key>PROJECT_ID</key>
+	<string>appigrejadev-b0b9b</string>
+	<key>STORAGE_BUCKET</key>
+	<string>appigrejadev-b0b9b.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:307137602167:ios:b95cfff671a97d2dfbdc72</string>
+</dict>
+</plist>
