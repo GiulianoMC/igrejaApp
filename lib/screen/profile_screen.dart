@@ -60,7 +60,7 @@ class _ProfileScreen extends State<ProfileScreen> {
                                 padding: const EdgeInsets.all(0),
                                 decoration: const BoxDecoration(
                                   shape: BoxShape.circle,
-                                  color: Color(0xFF00AEE4),
+                                  color: Color(0xFF253C59),
                                 ),
                                 child: IconButton(
                                   onPressed: () {
@@ -314,29 +314,7 @@ class _ProfileScreen extends State<ProfileScreen> {
                           padding: const EdgeInsets.only(top: 65.0),
                           child: Row(
                             children: [
-                              TextButton(
-                                onPressed: () {
-                                  model.logOut();
-                                },
-                                child: const Text(
-                                  'Sair',
-                                  style: TextStyle(
-                                    color: Color(0xFF0C1622),
-                                    fontSize: 14,
-                                    fontFamily: 'Inter',
-                                    fontWeight: FontWeight.w400,
-                                    height: 0.10,
-                                  ),
-                                ),
-                              ),
                               const Spacer(),
-                              IconButton(
-                                icon: const Icon(Icons.logout),
-                                onPressed: () {
-                                  model.logOut();
-                                },
-                                iconSize: 20,
-                              ),
                             ],
                           ),
                         ),

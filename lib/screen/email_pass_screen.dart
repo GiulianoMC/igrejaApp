@@ -253,7 +253,7 @@ class _EmailPassScreenState extends State<EmailPassScreen> {
                               width: 350,
                               height: 56,
                               decoration: BoxDecoration(
-                                color: const Color(0xFF00ABDF),
+                                color: const Color(0xFF253C59),
                                 borderRadius: BorderRadius.circular(12),
                               ),
                               child: Center(
@@ -300,7 +300,7 @@ class _EmailPassScreenState extends State<EmailPassScreen> {
                                   'Criar conta',
                                   style: TextStyle(
                                     color: Color(
-                                        0xFF00ABDF), // Defina a cor desejada para o texto "Criar conta"
+                                        0xFF253C59), // Defina a cor desejada para o texto "Criar conta"
                                     fontSize:
                                         14, // Pode ajustar o tamanho da fonte, se necessário
                                     fontFamily: 'Inter',
@@ -366,17 +366,6 @@ class _EmailPassScreenState extends State<EmailPassScreen> {
                                 ),
                               ],
                             ),
-                          ),
-                          const SizedBox(height: 20),
-                          AuthButton(
-                            iconData: FontAwesomeIcons.apple,
-                            title: " Login com Apple",
-                            onTap: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (_) => const EmailPassScreen()));
-                            },
-                            iconColor: Colors
-                                .black, // Cor desejada para o ícone do Google
                           ),
                           const SizedBox(height: 15),
                           AuthButton(

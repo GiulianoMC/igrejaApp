@@ -69,7 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Consumer<AuthProvider>(builder: (context, model, _) {
       return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.white,
+          backgroundColor: Color(0xFF253C59),
           title: const Text(
             '',
           ),
@@ -84,11 +84,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         onPressed: () {
                           model.logOut();
                         },
-                        icon: const Icon(Icons.logout),
+                        icon: const Icon(Icons.logout,color: Colors.white),
+
                       )
                   )
                       : IconButton(
-                      icon: const Icon(Icons.login),
+                      icon: const Icon(Icons.login, color: Colors.white),
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (_) => const EmailPassScreen()));
@@ -104,77 +105,62 @@ class _HomeScreenState extends State<HomeScreen> {
             NavigationDestination(
               selectedIcon: Image(
                 image: AssetImage(
-                  'assets/images/compass.png',
+                  'assets/images/home_02.png',
                 ),
-                height: 20,
+                height: 35,
               ),
               icon: Image(
                 image: AssetImage(
-                  'assets/images/compass_grey.png',
+                  'assets/images/home_01.png',
                 ),
-                height: 20,
+                height: 35,
               ),
-              label: 'Explore',
+              label: 'Home',
             ),
             NavigationDestination(
               selectedIcon: Image(
                 image: AssetImage(
-                  'assets/images/sparkles.png',
+                  'assets/images/cardapio_02.png',
                 ),
-                height: 20,
+                height: 35,
               ),
               icon: Image(
                 image: AssetImage(
-                  'assets/images/sparkles_grey.png',
+                  'assets/images/cardapio_01.png',
                 ),
-                height: 20,
+                height: 35,
               ),
-              label: 'Featured',
+              label: 'Cardápio',
             ),
             NavigationDestination(
               selectedIcon: Image(
                 image: AssetImage(
-                  'assets/images/community.png',
+                  'assets/images/avisos_02.png',
                 ),
-                height: 20,
+                height: 35,
               ),
               icon: Image(
                 image: AssetImage(
-                  'assets/images/community_grey.png',
+                  'assets/images/avisos_01.png',
                 ),
-                height: 20,
+                height: 35,
               ),
-              label: 'Community',
+              label: 'Avisos',
             ),
             NavigationDestination(
               selectedIcon: Image(
                 image: AssetImage(
-                  'assets/images/heart.png',
+                  'assets/images/perfil_02.png',
                 ),
-                height: 20,
+                height: 35,
               ),
               icon: Image(
                 image: AssetImage(
-                  'assets/images/heart_grey.png',
+                  'assets/images/perfil_01.png',
                 ),
-                height: 20,
+                height: 35,
               ),
-              label: 'Wishlist',
-            ),
-            NavigationDestination(
-              selectedIcon: Image(
-                image: AssetImage(
-                  'assets/images/profile.png',
-                ),
-                height: 20,
-              ),
-              icon: Image(
-                image: AssetImage(
-                  'assets/images/profile_grey.png',
-                ),
-                height: 20,
-              ),
-              label: 'Profile',
+              label: 'Perfil',
             ),
           ],
         ),

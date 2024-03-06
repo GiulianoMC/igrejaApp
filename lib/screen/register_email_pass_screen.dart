@@ -8,8 +8,7 @@ class RegisterEmailPassScreen extends StatefulWidget {
   const RegisterEmailPassScreen({Key? key}) : super(key: key);
 
   @override
-  State<RegisterEmailPassScreen> createState() =>
-      _RegisterEmailPassScreenState();
+  State<RegisterEmailPassScreen> createState() => _RegisterEmailPassScreenState();
 }
 
 class _RegisterEmailPassScreenState extends State<RegisterEmailPassScreen> {
@@ -25,10 +24,8 @@ class _RegisterEmailPassScreenState extends State<RegisterEmailPassScreen> {
             if (!snapshot.hasData) {
               return Scaffold(
                 appBar: AppBar(
-                  backgroundColor:
-                      Colors.white, // Definir a cor de fundo como branca
-                  automaticallyImplyLeading:
-                      false, // Isso remove o botão de retorno
+                  backgroundColor: Colors.white, // Definir a cor de fundo como branca
+                  automaticallyImplyLeading: false, // Isso remove o botão de retorno
                   actions: [
                     IconButton(
                       icon: const Icon(Icons.close),
@@ -38,8 +35,9 @@ class _RegisterEmailPassScreenState extends State<RegisterEmailPassScreen> {
                     ),
                   ],
                 ),
-                body: SingleChildScrollView(
-                  child: Center(
+                body:SingleChildScrollView(
+                  child:
+                  Center(
                     child: Padding(
                       padding: const EdgeInsets.all(0),
                       child: Column(
@@ -71,8 +69,7 @@ class _RegisterEmailPassScreenState extends State<RegisterEmailPassScreen> {
                             clipBehavior: Clip.antiAlias,
                             decoration: ShapeDecoration(
                               shape: RoundedRectangleBorder(
-                                side: const BorderSide(
-                                    width: 1, color: Color(0xFFF0F1F5)),
+                                side: const BorderSide(width: 1, color: Color(0xFFF0F1F5)),
                                 borderRadius: BorderRadius.circular(12),
                               ),
                             ),
@@ -85,26 +82,20 @@ class _RegisterEmailPassScreenState extends State<RegisterEmailPassScreen> {
                                   child: Center(
                                     child: Row(
                                       mainAxisSize: MainAxisSize.min,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      crossAxisAlignment: CrossAxisAlignment.center,
                                       children: [
-                                        const Icon(Icons.email,
-                                            color: Colors.grey),
+                                        const Icon(Icons.email, color: Colors.grey),
                                         const SizedBox(width: 12),
                                         Expanded(
                                           child: SizedBox(
                                             child: TextFormField(
                                               controller: model.emailController,
                                               decoration: const InputDecoration(
-                                                contentPadding:
-                                                    EdgeInsets.all(7),
+                                                contentPadding: EdgeInsets.all(7),
                                                 hintText: 'abc@email.com',
                                                 border: InputBorder.none,
-                                                hintStyle: TextStyle(
-                                                    fontSize: 12,
-                                                    fontFamily: 'Inter'),
+                                                hintStyle: TextStyle(fontSize: 12,fontFamily: 'Inter'),
                                               ),
                                             ),
                                           ),
@@ -125,8 +116,7 @@ class _RegisterEmailPassScreenState extends State<RegisterEmailPassScreen> {
                             clipBehavior: Clip.antiAlias,
                             decoration: ShapeDecoration(
                               shape: RoundedRectangleBorder(
-                                side: const BorderSide(
-                                    width: 1, color: Color(0xFFF0F1F5)),
+                                side: const BorderSide(width: 1, color: Color(0xFFF0F1F5)),
                                 borderRadius: BorderRadius.circular(12),
                               ),
                             ),
@@ -139,35 +129,27 @@ class _RegisterEmailPassScreenState extends State<RegisterEmailPassScreen> {
                                   child: Center(
                                     child: Row(
                                       mainAxisSize: MainAxisSize.min,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      crossAxisAlignment: CrossAxisAlignment.center,
                                       children: [
-                                        const Icon(Icons.lock,
-                                            color: Colors.grey),
+                                        const Icon(Icons.lock, color: Colors.grey),
                                         const SizedBox(width: 12),
                                         Expanded(
                                           child: TextFormField(
-                                            controller:
-                                                model.passwordController,
+                                            controller: model.passwordController,
                                             decoration: const InputDecoration(
                                               contentPadding: EdgeInsets.all(7),
                                               hintText: 'Senha',
                                               border: InputBorder.none,
-                                              hintStyle: TextStyle(
-                                                  fontSize: 12,
-                                                  fontFamily: 'Inter'),
+                                              hintStyle: TextStyle(fontSize: 12, fontFamily: 'Inter'),
                                             ),
-                                            obscureText:
-                                                !isPasswordVisible, // Toggle para ocultar/mostrar senha
+                                            obscureText: !isPasswordVisible, // Toggle para ocultar/mostrar senha
                                           ),
                                         ),
                                         InkWell(
                                           onTap: () {
                                             setState(() {
-                                              isPasswordVisible =
-                                                  !isPasswordVisible;
+                                              isPasswordVisible = !isPasswordVisible;
                                             });
                                           },
                                           child: Icon(
@@ -187,8 +169,25 @@ class _RegisterEmailPassScreenState extends State<RegisterEmailPassScreen> {
                           const SizedBox(height: 30),
                           const SizedBox(height: 20),
                           InkWell(
-                            onTap: () {
-                              // Lógica para o botão
+                            onTap: () async {
+                              try {
+                                // Chama o método createUserWithEmailAndPassword para criar um novo usuário
+                                UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+                                  email: model.emailController.text,
+                                  password: model.passwordController.text,
+                                );
+
+                                // Se o usuário for criado com sucesso, você pode realizar qualquer ação necessária, como navegar para outra tela
+                                if (userCredential != null) {
+                                  Navigator.of(context).pushReplacement(
+                                    MaterialPageRoute(builder: (context) => HomeScreen()),
+                                  );
+                                }
+                              } catch (e) {
+                                // Se houver um erro durante o registro, você pode tratar o erro aqui
+                                print("Erro durante o registro: $e");
+                                // Aqui você pode exibir uma mensagem de erro para o usuário informando que algo deu errado
+                              }
                             },
                             child: Container(
                               width: 350,
@@ -198,17 +197,11 @@ class _RegisterEmailPassScreenState extends State<RegisterEmailPassScreen> {
                                 borderRadius: BorderRadius.circular(12),
                               ),
                               child: Center(
-                                child: TextButton(
-                                  onPressed: () {
-                                    model.authenticate();
-                                    Navigator.of(context).pop();
-                                  },
-                                  child: const Text(
-                                    'Registrar',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 18,
-                                    ),
+                                child: Text(
+                                  'Registrar',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18,
                                   ),
                                 ),
                               ),
@@ -232,8 +225,7 @@ class _RegisterEmailPassScreenState extends State<RegisterEmailPassScreen> {
                                     shape: RoundedRectangleBorder(
                                       side: BorderSide(
                                         width: 1,
-                                        strokeAlign:
-                                            BorderSide.strokeAlignCenter,
+                                        strokeAlign: BorderSide.strokeAlignCenter,
                                         color: Color(0xFFF0F1F5),
                                       ),
                                     ),
@@ -248,8 +240,7 @@ class _RegisterEmailPassScreenState extends State<RegisterEmailPassScreen> {
                                     shape: RoundedRectangleBorder(
                                       side: BorderSide(
                                         width: 1,
-                                        strokeAlign:
-                                            BorderSide.strokeAlignCenter,
+                                        strokeAlign: BorderSide.strokeAlignCenter,
                                         color: Color(0xFFF0F1F5),
                                       ),
                                     ),
