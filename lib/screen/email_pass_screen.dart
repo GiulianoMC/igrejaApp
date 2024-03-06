@@ -247,7 +247,7 @@ class _EmailPassScreenState extends State<EmailPassScreen> {
                           const SizedBox(height: 20),
                           InkWell(
                             onTap: () {
-                              // Lógica para o botão
+
                             },
                             child: Container(
                               width: 350,
@@ -260,7 +260,11 @@ class _EmailPassScreenState extends State<EmailPassScreen> {
                                 child: TextButton(
                                   onPressed: () {
                                     model.authenticate();
-                                    Navigator.of(context).pop();
+                                    //Navigator.of(context).pop();
+                                    Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => HomeScreen()),
+                                    );
                                   },
                                   child: const Text(
                                     'Login',
